@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SELFORA</title>
+    <!-- การจัดการเวลา -->
+    <style>
+      body {
+        font-family: "Prompt", sans-serif;
+        background: url("https://i.pinimg.com/736x/7b/6a/42/7b6a42e4616f28ddc73cee84c3e38322.jpg")
+          center/cover no-repeat;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+      }
+      .container {
+        padding: 2rem;
+        background-color: rgba(63, 117, 29, 0.5);
+        max-width: 1000px;
+        margin: auto;
+        border-radius: 20px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header h1 {
+        margin: 0;
+      }
+      .start-button {
+        background-color: #00cc66;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .image-box {
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+      .image-box img {
+        max-width: 300px;
+        border-radius: 10px;
+      }
+      .description {
+        margin-top: 1rem;
+        line-height: 1.6;
+      }
+      .steps {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      .steps div {
+        text-align: center;
+      }
+      .circle {
+        width: 40px;
+        height: 40px;
+        background-color: #0077cc;
+        border-radius: 50%;
+        margin: auto;
+      }
+      .line {
+        height: 4px;
+        background-color: #0077cc;
+        flex: 1;
+        margin: 0 10px;
+      }
+      .activities {
+        margin-top: 2rem;
+      }
+      .activities h3 {
+        background-color: #b0e0c8;
+        color: #000;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        border-radius: 10px;
+      }
+      .activity-grid {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1rem;
+      }
+      .activity {
+        width: 45%;
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        padding: 1rem;
+      }
+      .activity img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .activity p {
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>การจัดการเวลา</h1>
+        <a href="Q1.html"><button class="start-button">START</button></a>
+      </div>
+
+      <div class="image-box">
+        <img
+          src="https://i.pinimg.com/736x/7b/6a/42/7b6a42e4616f28ddc73cee84c3e38322.jpg"
+          alt="ภาพประกอบ"
+        />
+      </div>
+      <div class="description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
+        elit arcu. Sed dictum semper bibendum. Fusce non nibh lectus. Nam leo
+        arcu, convallis eget sagittis sit amet, consequat eu dolor. Maecenas
+        tempus lorem rhoncus auctor pharetra. Proin vitae congue arcu, et
+        interdum urna. Nam varius lorem ut ex blandit varius. Nam at ligula
+        tincidunt, pellentesque augue a, condimentum felis. Curabitur vitae
+        commodo lacus. Praesent eleifend, sapien at venenatis dignissim, odio
+        magna rhoncus ex, at imperdiet nunc lacus eu sem. Quisque sit amet
+        lacinia turpis, a malesuada quam. Nulla vestibulum orci eu ipsum
+        maximus, vitae tincidunt nisi efficitur. Quisque facilisis nisi auctor
+        ligula malesuada, ac blandit arcu facilisis. Aenean sit amet consectetur
+        velit. Pellentesque dictum justo nec quam maximus, et dapibus diam
+        consectetur. Interdum et malesuada fames ac ante ipsum primis in
+        faucibus. Sed sed molestie ligula. Donec posuere nisi enim, a
+        sollicitudin quam hendrerit vel. In ullamcorper, elit at fringilla
+        commodo, metus sem dictum elit, sed ullamcorper felis dui et ipsum.
+        Nullam ac eleifend justo. Fusce facilisis elit placerat malesuada
+        lobortis. Pellentesque vel justo rutrum, eleifend enim non, iaculis
+        purus. Phasellus ac dui neque. Etiam et pellentesque augue.
+      </div>
+
+      <div class="steps">
+        <div>
+          <div class="circle"></div>
+          <p>การจัดระเบียบและวางแผน</p>
+        </div>
+        <div class="line"></div>
+        <div>
+          <div class="circle"></div>
+          <p>การทำงานให้เสร็จภายในกำหนด</p>
+        </div>
+        <div class="line"></div>
+        <div>
+          <div class="circle"></div>
+          <p>การทำให้สม่ำเสมอ</p>
+        </div>
+      </div>
+
+      <div class="activities">
+        <h3>กิจกรรม/ค่ายแนะนำ</h3>
+        <div class="activity-grid">
+          <div class="activity">
+            <img
+              src="https://i.pinimg.com/736x/c5/a4/2f/c5a42fc780c037e271001229c04e2062.jpg"
+              alt="กิจกรรม 1"
+            />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+              ac elit arcu. Sed dictum semper bibendum. Fusce non nibh lectus.
+              Nam leo arcu, convallis eget sagittis sit amet, consequat eu
+              dolor. Maecenas tempus lorem rhoncus auctor pharetra. Proin vitae
+              congue arcu, et interdum urna. Nam varius lorem ut ex blandit
+              varius.
+            </p>
+          </div>
+          <div class="activity" style="background-color: #f44; color: white">
+            <img
+              src="https://i.pinimg.com/736x/9d/4d/ee/9d4dee519fcf5f32ba9d38abc9b7296b.jpg"
+              alt="กิจกรรม 2"
+            />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+              ac elit arcu. Sed dictum semper bibendum. Fusce non nibh lectus.
+              Nam leo arcu, convallis eget sagittis sit amet, consequat eu
+              dolor. Maecenas tempus lorem rhoncus auctor pharetra. Proin vitae
+              congue arcu, et interdum urna. Nam varius lorem ut ex blandit
+              varius.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

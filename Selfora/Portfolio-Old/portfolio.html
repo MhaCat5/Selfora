@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SELFORA</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <script src="portfolio.js" defer></script>
+</head>
+
+<body>
+  <section class="header">
+    <div class="left-section">
+      <div class="card">
+        <img src="images/png-clipart-computer-icons-user-user-heroes-black.png" id="profilePreview" class="profile-img"
+          alt="Profile Image">
+
+        <div class="upload-btn-wrapper">
+          <button class="btn-upload">📸 Upload Photo</button>
+          <input type="file" accept="image/*" onchange="updateProfileImage(event)" />
+        </div>
+
+        <h1 class="user-name">My name is <span id="dynamicName">...</span></h1>
+      </div>
+      <aside>
+        <div>
+          <p class="asideA">My MBTI is <b>INFP</b></p>
+        </div>
+      </aside>
+      <div class="soft-skill-graph">
+        <div class="skill-circle-progress" data-percent="85">
+          <div class="progress-container">
+            <svg class="progress-ring" width="120" height="120">
+              <circle class="bg" cx="60" cy="60" r="50" />
+              <circle class="progress leader" cx="60" cy="60" r="50" />
+            </svg>
+            <div class="percent-text">0%</div>
+          </div>
+          <div class="skill-label"><strong>Leadership</strong></div>
+        </div>
+
+        <div class="skill-circle-progress" data-percent="75">
+          <div class="progress-container">
+            <svg class="progress-ring" width="120" height="120">
+              <circle class="bg" cx="60" cy="60" r="50" />
+              <circle class="progress adapt" cx="60" cy="60" r="50" />
+            </svg>
+            <div class="percent-text">0%</div>
+          </div>
+          <div class="skill-label"><strong>Adaptability</strong></div>
+        </div>
+
+        <div class="skill-circle-progress" data-percent="90">
+          <div class="progress-container">
+            <svg class="progress-ring" width="120" height="120">
+              <circle class="bg" cx="60" cy="60" r="50" />
+              <circle class="progress comm" cx="60" cy="60" r="50" />
+            </svg>
+            <div class="percent-text">0%</div>
+          </div>
+          <div class="skill-label"><strong>Communication</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="radar-wrapper">
+        <img src="images/images.png" alt="" class="radarchart">
+        <div class="monthly-bar-chart">
+          <h2>Monthly Progress</h2>
+          <div class="bar-container">
+            <div class="bar-item">
+              <div class="bar" style="height: 80%"></div>
+              <p>Jan</p>
+            </div>
+            <div class="bar-item">
+              <div class="bar" style="height: 60%"></div>
+              <p>Feb</p>
+            </div>
+            <div class="bar-item">
+              <div class="bar" style="height: 90%"></div>
+              <p>Mar</p>
+            </div>
+            <div class="bar-item">
+              <div class="bar" style="height: 40%"></div>
+              <p>Apr</p>
+            </div>
+            <div class="bar-item">
+              <div class="bar" style="height: 70%"></div>
+              <p>May</p>
+            </div>
+            <div class="bar-item">
+              <div class="bar" style="height: 100%"></div>
+              <p>Jun</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

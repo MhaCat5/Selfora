@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Tooplate">
+    <title>SELFORA</title>
+    <link href="assets/css/me.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+     <header class="header-area header-sticky">
+            <div class="container">
+
+                <nav class="main-nav">
+                    <div style="display: flex; width: 1200px; ">
+                        <a href="index.html" class="logo">
+                            <h1>Selfora</h1>
+                        </a>
+                        <div class="nav-wrapper">
+                            <ul class="nav">
+                                <li><a href="index.html"
+                                        class="active">Home</a></li>
+                                <li><a href="me.html">Me</a></li>
+                                <li><a href="portfolio.html">Portfolio</a></li>
+                                <li><a href="sign-in.html"><i
+                                            class="fa fa-book"></i>
+                                        Sign-in</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+        </header>
+    <section class="section-padding">
+        <div class="container">
+            <div class="left-column">
+                <div class="about-image-wrap">
+                    <div class="about-image-info">
+                        <h1>Self Skills Overview</h1>
+                        <div id="skillContainer"></div>
+                        <h3 class="text-white">Self-development Radar Chart</h3>
+                        <div class="detail"><textarea id="detail3" placeholder="AI's response will appear here..."
+                                readonly>นนนนนนนนน</textarea></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="about-thumb bg-white shadow">
+                    <div class="about-info">
+                        <h2 class="mb-3">HOT SKILLS</h2>
+                        <a class="custom-btn btn custom-bg-primary me-2 mb-2">Critical thinking</a>
+                        <a class="custom-btn btn custom-bg-primary me-2 mb-2">Problem Solving</a>
+                        <a class="custom-btn btn custom-bg-primary me-2 mb-2">Communication</a>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 24px;">
+                    <div class="about-thumb bg-danger" style="flex: 1;">
+                        <div class="about-info">
+                            <h5 class="mb-4 text-white">Improve your skills</h5>
+                            <a class="custom-btn btn custom-bg-primary me-2 mb-2"
+                                href="startq.html">ความกระตือรือร้น</a>
+                            <a class="custom-btn btn custom-bg-primary me-2 mb-2" href="startq.html">การจัดการเวลา</a>
+                        </div>
+                    </div>
+
+                    <div class="about-thumb bg-warning" style="flex: 1;">
+                        <div class="about-info">
+                            <h5 class="mb-4 text-white">Quote of today</h5>
+                            <p class="text-white mb-0">“Success is not final, failure is not fatal.”</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-thumb bg-white2">
+                    <div class="about-info">
+                        <h2 class="mb-3">RADAR CHART</h2>
+                        <canvas id="radarChart" width="400" height="400"></canvas>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+  const savedData = localStorage.getItem('analysisResult');
+  if (!savedData) {
+    alert("ไม่พบข้อมูลวิเคราะห์ผล");
+    return;
+  }
+  const analysisData = JSON.parse(savedData);
+  
+            const skills = [
+                { name: "Leadership", value: analysisData.leadership.percent, description: analysisData.leadership.detail },
+                { name: "Communication", value: analysisData.communication.percent, description: analysisData.communication.detail },
+                { name: "Problem Solving", value: analysisData.problemSolving.percent, description: analysisData.problemSolving.detail },
+                { name: "Adaptability", value: analysisData.adaptability.percent, description: analysisData.adaptability.detail },
+                { name: "Empathy", value: analysisData.empathy.percent, description: analysisData.empathy.detail },
+            ];
+
+            // แสดงผลใน skill container
+            const container = document.getElementById("skillContainer");
+            container.innerHTML = "";
+            skills.forEach(skill => {
+                const box = document.createElement("div");
+                box.className = "skill-box";
+                box.innerHTML = `
+      <div class="skill-name">${skill.name} - ${skill.value}%</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:${skill.value}%;">${skill.value}%</div>
+      </div>
+      <p>${skill.description}</p>
+    `;
+                container.appendChild(box);
+            });
+
+            // ใส่รายละเอียด personality insights
+            const detailTextarea = document.getElementById("detail3");
+            if (detailTextarea && analysisData.personalityInsights) {
+                detailTextarea.value = analysisData.personalityInsights.summary + "\n\n" + analysisData.personalityInsights.deepInsights;
+            }
+
+            // สร้าง Chart
+            const labels = skills.map(s => s.name);
+            const dataValues = skills.map(s => s.value);
+
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Skill Levels (%)',
+                        data: dataValues,
+                        fill: true,
+                        backgroundColor: 'rgba(86, 207, 62, 0.2)',
+                        borderColor: 'rgba(86, 207, 62, 1)',
+                        pointBackgroundColor: 'rgba(86, 207, 62, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(86, 207, 62, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { stepSize: 20, color: '#333' },
+                            pointLabels: { font: { size: 14 }, color: '#000' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { color: '#333' } }
+                    }
+                }
+            });
+        });
+
+        // const mockResult = {
+        //             "message": "Analysis generated successfully",
+        //             "data": {
+        //                 "leadership" : {
+        //                     "percent" : 60,
+        //                     "detail" : "สามารถกำหนดเป้าหมายได้ แต่การสร้างแรงจูงใจยังไม่ครอบคลุม"
+        //                 },
+        //                 "communication" : {
+        //                     "percent" : 70,
+        //                     "detail" : "สามารถใช้เทคนิคการสื่อสาร เช่น การเปรียบเทียบและใช้ภาพประกอบได้ดี แต่ยังขาดรายละเอียดอื่น ๆ "
+        //                 },
+        //                 "problemSolving" : {
+        //                     "percent" : 80,
+        //                     "detail" : "สามารถระบุปัญหาและหาวิธีแก้ไขได้ตรงประเด็นและป้องกันปัญหาได้ดี"
+        //                 },
+        //                 "adaptability" : {
+        //                     "percent" : 70,
+        //                     "detail" : "สามารถปรับตัวและแก้ไขแผนได้ดี แต่ยังไม่มีการวิเคราะห์ผลกระทบ"
+        //                 },
+        //                 "empathy" : {
+        //                     "percent" : 60,
+        //                     "detail" : "สามารถคาดเดาความรู้สึกของผู้อื่นได้ในระดับหนึ่ง แต่ยังขาดรายละเอียด"
+        //                 },
+        //                 "personalityInsights" : {
+        //                     "summary" : "มีทักษะการแก้ไขปัญหาที่ดี มีความสามาถในการปรับตัวได้ระดับปานกลาง และมีความสามารถในการสื่อสารและความเห็นอกเห็นใจระดับปานกลาง",
+        //                     "deepInsights" : "ผู้ใช้มีความเป็นผู้นำในระดับปานกลาง เน้นการวางแผนและการปฏิบัติงานอย่างเป็นระบบ มีความรับผิดชอบสูง และสามารถจัดการกับสภานการณ์ที่ไม่คาดคิดได้ แต่ยังขาดทักษะด้านการสร้างแรงจูงใจและการสื่อสารเชิงลึก"
+        //                 }
+        //             }
+        //         }
+    </script>
+</body>
+
+</html>
