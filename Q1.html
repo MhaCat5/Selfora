@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELFORA</title>
+    <!-- คำถามและคำตอบ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+             background: url("https://i.pinimg.com/736x/e7/cf/79/e7cf79c96540d0f04ba701061b0b1c72.jpg")
+          center/cover no-repeat;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Background styling to mimic the image - you can replace this with an actual background image */
+            /*background: linear-gradient(135deg, #a7d9f7, #66b2e0); /* A blue gradient for a similar feel */
+            background-size: cover;
+            background-position: center;
+            position: relative; /* Needed for overlay */
+        }
+
+        /* Overlay to lighten the background and make content stand out, similar to the image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white overlay */
+            z-index: -1; /* Place behind content */
+        }
+
+        .qa-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the main content area */
+            border-radius: 20px; /* Rounded corners for the main content box */
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+            max-width: 900px; /* Max width for the entire QA section */
+            width: 95%; /* Responsive width */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Space between question and answers */
+        }
+
+        .question-box {
+            background-color: #4a90e2; /* Blue background for the question box */
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px; /* Rounded corners */
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; /* Space between emoji and text */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Shadow for question box */
+            margin-bottom: 20px; /* Space below question box */
+        }
+
+        .question-box .emoji {
+            font-size: 2.5rem; /* Larger emoji size */
+        }
+
+        .answer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid for answers */
+            gap: 20px; /* Space between answer buttons */
+            justify-content: center;
+        }
+
+        .answer-button {
+            background-color: #87ceeb; /* Lighter blue for answer buttons */
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px; /* Rounded corners */
+            font-size: 1.75rem; /* text-3xl */
+            font-weight: 600; /* Semi-bold */
+            text-decoration: none; /* Remove underline from links */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Shadow for answer buttons */
+        }
+
+        .answer-button:hover {
+            background-color: #6495ed; /* Darker blue on hover */
+            transform: translateY(-5px); /* Slight lift effect on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+</style>
+</head>
+<body>
+
+    <div class="qa-container">
+        <!-- Question Section -->
+        <div class="question-box">
+            <span class="emoji">😊</span>
+            <span>Question</span>
+        </div>
+
+        <!-- Answer Options Grid -->
+        <div class="answer-grid">
+            <a href="#" class="answer-button">Answer 1</a>
+            <a href="#" class="answer-button">Answer 2</a>
+            <a href="#" class="answer-button">Answer 3</a>
+        </div>
+    </div>
+
+</body>
+</html>
